@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"time"
 )
 
@@ -16,6 +17,9 @@ type reservation struct {
 	endDate      time.Time
 }
 
-func main() {
+type lot []space
 
+func main() {
+	newlot := lot{}
+	fmt.Println(newlot)
 }
