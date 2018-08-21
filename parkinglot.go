@@ -7,7 +7,7 @@ import (
 
 type space struct {
 	id          int
-	special     string
+	ADA         bool
 	reservation reservation
 }
 
