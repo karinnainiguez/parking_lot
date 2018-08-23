@@ -41,7 +41,6 @@ func (l lot) print() {
 		} else {
 			fmt.Printf("Currently Reserved from %v to %v", space.reservation.startDate, space.reservation.endDate)
 		}
-
 	}
 }
 
