@@ -8,6 +8,7 @@ import (
 type space struct {
 	ADA         bool
 	reservation reservation
+	occupied    bool
 }
 
 type reservation struct {
@@ -28,7 +29,8 @@ func main() {
 
 func newLot(regular int, ADA int) (lot, string) {
 	lot := lot{}
-	lot.addSpaces(regular, ADA)
+	lot.addRegularSpaces(regular)
+	lot.addADASpaces(ADA)
 	return lot, fmt.Sprintf("Successfully created lot with %v spaces", len(lot))
 }
 
@@ -44,19 +46,39 @@ func (l lot) print() {
 	}
 }
 
-func (l lot) addSpaces(regular int, ADA int) string {
+func (l lot) addRegularSpaces(regular int) string {
 	added := 0
 
 	for i := 0; i < regular; i++ {
 		nextID := len(l) + 1
 		newSpace := space{}
 		l[nextID] = newSpace
+		added++
 	}
+
+	return fmt.Sprintf("Successfully added %v spaces.  Lot now has %v total spaces", added, len(l))
+}
+
+func (l lot) addADASpaces(ADA int) string {
+	added := 0
 
 	for j := 0; j < ADA; j++ {
 		nextID := len(l) + 1
 		newSpace := space{ADA: true}
 		l[nextID] = newSpace
+		added++
 	}
 	return fmt.Sprintf("Successfully added %v spaces.  Lot now has %v total spaces", added, len(l))
+}
+
+func (l lot) reserveSpot() {
+
+}
+
+func (l lot) park() {
+
+}
+
+func (l lot) vacate() {
+
 }
